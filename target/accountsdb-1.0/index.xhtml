@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Accounts Database</title>
+    </h:head>
+    <h:body>
+        <h:form id="form1">
+            
+            <p:dataTable value="#{accountsbean.accounts}" var="account">
+                <p:column headerText="Accounts ID">
+                   
+                    
+                     <h:commandLink action="#{accountsbean.showDetails(account)}"
+                                   value="#{account.id}"/>
+                     
+                    
+        </p:column>
+                
+                
+                <p:column  headerText="ID">
+                    <h:outputText value="#{account.id} " />
+        </p:column>
+
+                <p:column headerText="Account Number">
+                    <h:outputText value="#{account.accountNumber} "/>
+                </p:column>
+
+                <p:column  headerText="Account Type"> 
+                    <h:outputText value="#{account.accountType}"/>
+                </p:column>
+              
+               
+            </p:dataTable>
+            
+            
+            
+            <p:dataTable value="#{accountsbean.statements}" var="statement">
+              
+                
+                
+                <p:column  headerText="ID">
+                    <h:outputText value="#{statement.id} " />
+        </p:column>
+
+                <p:column headerText="Amount">
+                    <h:outputText value="#{statement.amount} "/>
+                </p:column>
+
+                <p:column  headerText="Date Field"> 
+                    <h:outputText value="#{statement.datefield}"/>
+                </p:column>
+              
+                <p:column  headerText="Account Number"> 
+                    <h:outputText value="#{statement.accountId.accountNumber}"/>
+                </p:column>
+                
+                <p:column  headerText="Account Type"> 
+                    <h:outputText value="#{statement.accountId.accountType}"/>
+                </p:column>
+                
+                <p:column  headerText="Account ID"> 
+                    <h:outputText value="#{statement.accountId.id}"/>
+                </p:column>
+               
+            </p:dataTable>
+            
+        </h:form>
+    </h:body>
+</html>
+
