@@ -47,6 +47,12 @@ public class accountsbean implements Serializable {
     int statementId;
     double amount;
     Date datefield;
+    
+    double startamount;
+    double endamount;
+    
+    Date startdate;
+    Date enddate;
 
     @PersistenceContext
     EntityManager em;
@@ -151,8 +157,8 @@ public class accountsbean implements Serializable {
         this.datefield = datefield;
     }
 
-    public String showDetails(Accounts account) {
-        this.account = account;
+    public String showDetails(Statements statement) {
+        this.statement = statement;
         return "viewaccount";
     }
 
@@ -169,6 +175,39 @@ public class accountsbean implements Serializable {
         return statements;
     }
 
+    public double getStartamount() {
+        return startamount;
+    }
+
+    public void setStartamount(double startamount) {
+        this.startamount = startamount;
+    }
+
+    public double getEndamount() {
+        return endamount;
+    }
+
+    public void setEndamount(double endamount) {
+        this.endamount = endamount;
+    }
+
+    public Date getStartdate() {
+        return startdate;
+    }
+
+    public void setStartdate(Date startdate) {
+        this.startdate = startdate;
+    }
+
+    public Date getEnddate() {
+        return enddate;
+    }
+
+    public void setEnddate(Date enddate) {
+        this.enddate = enddate;
+    }
+
+    
 //    public void setStatements(List<Statements> statements) {
 //        this.statements = statements;
 //    }
@@ -236,7 +275,7 @@ public class accountsbean implements Serializable {
     public List<Statements> findStatements() {
         List<Statements> stat = null;
         try {
-            stat = statementsfacade.findStatements(statementId, amount, datefield, accountId, accountNumber);
+            stat = statementsfacade.findStatements(statementId, startamount, endamount, datefield, accountId, accountNumber);
 
         } catch (ArrayIndexOutOfBoundsException exception) {
             System.out.println("This is the Exception" + exception + " " + 3);
@@ -252,7 +291,7 @@ public class accountsbean implements Serializable {
 //        this.findCustomersByAccount = findCustomersByAccount;
 //    }
     public List<Statements> getFindStatementsByAccount() {
-        findStatementsByAccount = statementsfacade.findStatements(statementId, amount, datefield, accountId, accountNumber);
+        findStatementsByAccount = statementsfacade.findStatements(statementId, startamount, endamount, datefield, accountId, accountNumber);
         return findStatementsByAccount;
     }
 

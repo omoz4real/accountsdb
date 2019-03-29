@@ -47,7 +47,7 @@ public class Statements implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     private Date datefield;
     @Basic(optional = false)
     @NotNull

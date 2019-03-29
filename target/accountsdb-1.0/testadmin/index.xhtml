@@ -4,38 +4,48 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <h:head>
-        <titleeAccounts Database for Test Admin</title>
+        <title>Accounts Database for Test User</title>
     </h:head>
     <h:body>
         <h:form id="form1">
-            
-            <p:dataTable value="#{accountsbean.accounts}" var="account">
-                <p:column headerText="Accounts ID">
-                   
+
+            <p:dataTable value="#{accountsbean.statements}" var="account">
+                
+                <p:column  headerText="Account Id"> 
+                    <h:commandLink action="#{accountsbean.showDetails(account)}"
+                                   value="#{account.accountId.id}"/>
                     
-                     <h:commandLink action="#{accountsbean.showDetails(account)}"
+                </p:column>
+                
+                <p:column headerText="Statement ID">
+                    <h:commandLink action="#{accountsbean.showDetails(account)}"
                                    value="#{account.id}"/>
-                     
-                    
-        </p:column>
-                
-                
-                <p:column  headerText="ID">
-                    <h:outputText value="#{account.id} " />
-        </p:column>
+                </p:column>
+
+                <p:column  headerText="Account Type">
+                    <h:outputText value="#{account.accountId.accountType} " />
+                </p:column>
 
                 <p:column headerText="Account Number">
-                    <h:outputText value="#{account.accountNumber} "/>
+                    <h:outputText value="#{account.accountId.accountNumber} "/>
                 </p:column>
 
-                <p:column  headerText="Account Type"> 
-                    <h:outputText value="#{account.accountType}"/>
+
+                <p:column  headerText="Amount">
+                    <h:outputText value="#{account.amount} " />
                 </p:column>
-              
+
+                <p:column headerText="Date">
+                    <h:outputText value="#{account.datefield} "/>
+                </p:column>
+
                 
+
+
             </p:dataTable>
-            
+
         </h:form>
     </h:body>
 </html>
+
 

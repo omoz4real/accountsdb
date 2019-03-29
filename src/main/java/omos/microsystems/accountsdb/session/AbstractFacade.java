@@ -74,11 +74,12 @@ public abstract class AbstractFacade<T> {
 //        return resultList;
 //    }
 
-     public List<Statements> findStatements(int id, double amount, Date datefield, int accountId, String accountNumber) {
-        Query query = getEntityManager().createQuery("SELECT s FROM Statements s WHERE s.id = :id OR s.datefield = :datefield OR s.amount = :amount OR s.accountId.id = :accountId OR s.accountId.accountNumber = :accountNumber");
+     public List<Statements> findStatements(int id, double startamount, double endamount, Date datefield, int accountId, String accountNumber) {
+        Query query = getEntityManager().createQuery("SELECT s FROM Statements s WHERE s.id = :id OR s.datefield = :datefield OR s.amount BETWEEN :startamount AND :endamount OR s.accountId.id = :accountId OR s.accountId.accountNumber = :accountNumber");
         query.setParameter("id", id);
         query.setParameter("datefield", datefield);
-        query.setParameter("amount", amount);
+        query.setParameter("startamount", startamount);
+        query.setParameter("endamount", endamount);
         query.setParameter("accountId", accountId);
         query.setParameter("accountNumber", accountNumber);
         List<Statements> resultList = query.getResultList();

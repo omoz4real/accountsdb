@@ -1,53 +1,73 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-       xmlns:f="http://java.sun.com/jsf/core"
-       xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
-    
-      <f:view contentType="text/html">
-    <h:head>
-        <title>Accounts DB for Test User Search</title>
-    </h:head>
-    <h:body>
-        <h:form id="form">
-            
-            <h:panelGrid columns="2">
-                
-                <h:outputLabel for="id" value="ID:" />
-                <h:inputText value="#{accountsbean.accountId}" id="id"/>
-            
-            <h:outputLabel for="accountNumber" value="Account Number:" />
-            <h:inputText value="#{accountsbean.accountNumber}" id="accountNumber"/>
 
-            <h:outputLabel for="accountType" value="Account Type:" />
-            <h:inputText value="#{accountsbean.accountType}" id="accountType"/>
+    <f:view contentType="text/html">
+        <h:head>
+            <title>Accounts DB</title>
+        </h:head>
+        <h:body>
+            <h:form id="form">
+                <h:panelGrid columns="2">
 
-            <h:commandButton action="#{accountsbean.findCustomers()}" value="SEARCH" class="search"/>
-            
+                    <h:outputLabel for="accountId" value="Account Id:" />
+                    <h:inputText value="#{accountsbean.accountId}" id="accountId"/>
+
+                    <h:outputLabel for="id" value="ID:" />
+                    <h:inputText value="#{accountsbean.statementId}" id="id"/>
+
+                    <h:outputLabel for="accountNumber" value="Account Number:" />
+                    <h:inputText value="#{accountsbean.accountNumber}" id="accountNumber"/>
+
+                    <h:outputLabel for="startamount" value="From Amount:" />
+                    <h:inputText value="#{accountsbean.startamount}" id="startamount"/>
+
+                    <h:outputLabel for="endamount" value="To Amount:" />
+                    <h:inputText value="#{accountsbean.endamount}" id="endamount"/>
+
+                    <p:outputLabel for="startdate" value="Start Date:" />
+                    <p:calendar value="#{accountsbean.startdate}" id="startdate"/>
+
+                    <p:outputLabel for="enddate" value="End Date:" />
+                    <p:calendar id="enddate" value="#{accountsbean.enddate}" />
+
+
+                    <h:commandButton action="#{accountsbean.findStatements()}" value="SEARCH" class="search"/>
+
                 </h:panelGrid>
 
 
 
-            <p:dataTable value="#{accountsbean.findCustomersByAccount}" var="account" id="accountTable" >
-    
-                <p:column headerText="Account ID">
-                    <h:outputText value="#{account.id} " />
-                </p:column>
+                <p:dataTable value="#{accountsbean.findStatementsByAccount}" var="account" id="accountTable" >
 
-                <p:column headerText="Account Number">
-                    <h:outputText value="#{account.accountNumber} " />
-                </p:column>
+                    <p:column headerText="Account ID">
+                        <h:outputText value="#{account.accountId.id} " />
+                    </p:column>
 
-                <p:column headerText="Account Type">
-                    <h:outputText value="#{account.accountType} " />
-                </p:column>
-   
-                
-            </p:dataTable>
+                    <p:column headerText="Ammount">
+                        <h:outputText value="#{account.amount} " />
+                    </p:column>
 
-        </h:form>
-    </h:body>
-      </f:view>
+                    <p:column headerText="Date">
+                        <h:outputText value="#{account.datefield} " />
+                    </p:column>
+
+                    <p:column headerText="Account Type">
+                        <h:outputText value="#{account.accountId.accountType} " />
+                    </p:column>
+
+                    <p:column headerText="Account Number">
+                        <h:outputText value="#{account.accountId.accountNumber} " />
+                    </p:column>
+
+                </p:dataTable>
+
+
+            </h:form>
+        </h:body>
+    </f:view>
 </html>
 
