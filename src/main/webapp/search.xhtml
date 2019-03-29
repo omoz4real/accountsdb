@@ -13,6 +13,9 @@
             <h:form id="form">
  <h:panelGrid columns="2">
                 
+                       <h:outputLabel for="accountId" value="Account Id:" />
+            <h:inputText value="#{accountsbean.accountId}" id="accountId"/>
+            
                 <h:outputLabel for="id" value="ID:" />
                 <h:inputText value="#{accountsbean.statementId}" id="id"/>
             
@@ -22,8 +25,7 @@
             <h:outputLabel for="amount" value="Amount:" />
             <h:inputText value="#{accountsbean.amount}" id="amount"/>
             
-            <h:outputLabel for="accountId" value="Account Id:" />
-            <h:inputText value="#{accountsbean.accountId}" id="accountId"/>
+ 
             
 
             <h:commandButton action="#{accountsbean.findStatements()}" value="SEARCH" class="search"/>
@@ -38,19 +40,19 @@
                     <h:outputText value="#{account.accountId.id} " />
                 </p:column>
 
-                <p:column headerText="Account Number">
+                <p:column headerText="Ammount">
                     <h:outputText value="#{account.amount} " />
                 </p:column>
 
-                <p:column headerText="Account Type">
+                <p:column headerText="Date">
                     <h:outputText value="#{account.datefield} " />
                 </p:column>
    
-                    <p:column headerText="Account Number">
+                    <p:column headerText="Account Type">
                         <h:outputText value="#{account.accountId.accountType} " />
                 </p:column>
 
-                <p:column headerText="Account Type">
+                <p:column headerText="Account Number">
                     <h:outputText value="#{account.accountId.accountNumber} " />
                 </p:column>
                     
