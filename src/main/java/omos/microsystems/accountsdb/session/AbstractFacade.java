@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import javax.persistence.TemporalType;
 import omos.microsystems.accountsdb.entities.Accounts;
 import omos.microsystems.accountsdb.entities.Statements;
 
@@ -74,14 +75,16 @@ public abstract class AbstractFacade<T> {
 //        return resultList;
 //    }
 
-     public List<Statements> findStatements(int id, double startamount, double endamount, Date datefield, int accountId, String accountNumber) {
-        Query query = getEntityManager().createQuery("SELECT s FROM Statements s WHERE s.id = :id OR s.datefield = :datefield OR s.amount BETWEEN :startamount AND :endamount OR s.accountId.id = :accountId OR s.accountId.accountNumber = :accountNumber");
+     public List<Statements> findStatements(int id, double startamount, double endamount, Date datefield, int accountId, String accountNumber, Date startdate, Date enddate) {
+        Query query = getEntityManager().createQuery("SELECT s FROM Statements s WHERE s.id = :id OR s.datefield = :datefield OR s.amount BETWEEN :startamount AND :endamount OR s.datefield BETWEEN :startdate AND :enddate OR s.accountId.id = :accountId OR s.accountId.accountNumber = :accountNumber");
         query.setParameter("id", id);
         query.setParameter("datefield", datefield);
         query.setParameter("startamount", startamount);
         query.setParameter("endamount", endamount);
         query.setParameter("accountId", accountId);
         query.setParameter("accountNumber", accountNumber);
+        query.setParameter("startdate", startdate, TemporalType.DATE);
+        query.setParameter("enddate", enddate, TemporalType.DATE);
         List<Statements> resultList = query.getResultList();
         return resultList;
     }

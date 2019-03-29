@@ -275,7 +275,7 @@ public class accountsbean implements Serializable {
     public List<Statements> findStatements() {
         List<Statements> stat = null;
         try {
-            stat = statementsfacade.findStatements(statementId, startamount, endamount, datefield, accountId, accountNumber);
+            stat = statementsfacade.findStatements(statementId, startamount, endamount, datefield, accountId, accountNumber, startdate, enddate);
 
         } catch (ArrayIndexOutOfBoundsException exception) {
             System.out.println("This is the Exception" + exception + " " + 3);
@@ -291,7 +291,7 @@ public class accountsbean implements Serializable {
 //        this.findCustomersByAccount = findCustomersByAccount;
 //    }
     public List<Statements> getFindStatementsByAccount() {
-        findStatementsByAccount = statementsfacade.findStatements(statementId, startamount, endamount, datefield, accountId, accountNumber);
+        findStatementsByAccount = statementsfacade.findStatements(statementId, startamount, endamount, datefield, accountId, accountNumber, startdate, enddate);
         return findStatementsByAccount;
     }
 
