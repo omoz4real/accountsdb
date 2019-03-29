@@ -14,39 +14,48 @@
  <h:panelGrid columns="2">
                 
                 <h:outputLabel for="id" value="ID:" />
-                <h:inputText value="#{accountsbean.accountId}" id="id"/>
+                <h:inputText value="#{accountsbean.statementId}" id="id"/>
             
             <h:outputLabel for="accountNumber" value="Account Number:" />
             <h:inputText value="#{accountsbean.accountNumber}" id="accountNumber"/>
 
-            <h:outputLabel for="accountType" value="Account Type:" />
-            <h:inputText value="#{accountsbean.accountType}" id="accountType"/>
+            <h:outputLabel for="amount" value="Amount:" />
+            <h:inputText value="#{accountsbean.amount}" id="amount"/>
+            
+            <h:outputLabel for="accountId" value="Account Id:" />
+            <h:inputText value="#{accountsbean.accountId}" id="accountId"/>
+            
 
-            <h:commandButton action="#{accountsbean.findCustomers()}" value="SEARCH" class="search"/>
+            <h:commandButton action="#{accountsbean.findStatements()}" value="SEARCH" class="search"/>
             
                 </h:panelGrid>
 
 
 
-            <p:dataTable value="#{accountsbean.findCustomersByAccount}" var="account" id="accountTable" >
+                <p:dataTable value="#{accountsbean.findStatementsByAccount}" var="account" id="accountTable" >
     
                 <p:column headerText="Account ID">
-                    <h:outputText value="#{account.id} " />
+                    <h:outputText value="#{account.accountId.id} " />
                 </p:column>
 
                 <p:column headerText="Account Number">
-                    <h:outputText value="#{account.accountNumber} " />
+                    <h:outputText value="#{account.amount} " />
                 </p:column>
 
                 <p:column headerText="Account Type">
-                    <h:outputText value="#{account.accountType} " />
+                    <h:outputText value="#{account.datefield} " />
                 </p:column>
    
-            </p:dataTable>
- <br/><br/><br/><br/>
-              
+                    <p:column headerText="Account Number">
+                        <h:outputText value="#{account.accountId.accountType} " />
+                </p:column>
 
-               
+                <p:column headerText="Account Type">
+                    <h:outputText value="#{account.accountId.accountNumber} " />
+                </p:column>
+                    
+            </p:dataTable>
+ 
 
             </h:form>
         </h:body>

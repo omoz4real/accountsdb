@@ -20,7 +20,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import omos.microsystems.accountsdb.entities.Accounts;
 import omos.microsystems.accountsdb.entities.Statements;
 
 /**
@@ -91,11 +90,13 @@ public class StatementsFacadeREST extends AbstractFacade<Statements> {
         return em;
     }
     
-    public List<Statements> findStatements(int id, double amount, Date datefield) {
-        Query query = getEntityManager().createQuery("SELECT s FROM Statements s WHERE s.id = :id OR s.datefield = :datefield OR s.amount = :amount");
-        query.setParameter("id", 3);
+    public List<Statements> findStatements(int id, double amount, Date datefield, int accountId, String accountNumber) {
+        Query query = getEntityManager().createQuery("SELECT s FROM Statements s WHERE s.id = :id OR s.datefield = :datefield OR s.amount = :amount OR s.accountId.id = :accountId OR s.accountId.accountNumber = :accountNumber");
+        query.setParameter("id", id);
         query.setParameter("datefield", datefield);
         query.setParameter("amount", amount);
+        query.setParameter("accountId", accountId);
+        query.setParameter("accountNumber", accountNumber);
         List<Statements> resultList = query.getResultList();
         return resultList;
     }

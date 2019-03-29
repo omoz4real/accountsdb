@@ -9,8 +9,8 @@ import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-import javax.persistence.TemporalType;
 import omos.microsystems.accountsdb.entities.Accounts;
+import omos.microsystems.accountsdb.entities.Statements;
 
 /**
  *
@@ -64,14 +64,24 @@ public abstract class AbstractFacade<T> {
         javax.persistence.Query q = getEntityManager().createQuery(cq);
         return ((Long) q.getSingleResult()).intValue();
     }
+//
+//    public List<Accounts> findAccounts(int id, String accountNumber, String accountType) {
+//        Query query = getEntityManager().createQuery("SELECT a FROM Accounts a WHERE a.id = :id OR a.accountNumber = :accountNumber OR a.accountType = :accountType");
+//        query.setParameter("id", id);
+//        query.setParameter("accountNumber", accountNumber);
+//        query.setParameter("accountType", accountType);
+//        List<Accounts> resultList = query.getResultList();
+//        return resultList;
+//    }
 
-    public List<Accounts> findAccounts(int id, String accountNumber, String accountType) {
-        Query query = getEntityManager().createQuery("SELECT a FROM Accounts a WHERE a.id = :id OR a.accountNumber = :accountNumber OR a.accountType = :accountType");
+     public List<Statements> findStatements(int id, double amount, Date datefield, int accountId, String accountNumber) {
+        Query query = getEntityManager().createQuery("SELECT s FROM Statements s WHERE s.id = :id OR s.datefield = :datefield OR s.amount = :amount OR s.accountId.id = :accountId OR s.accountId.accountNumber = :accountNumber");
         query.setParameter("id", id);
+        query.setParameter("datefield", datefield);
+        query.setParameter("amount", amount);
+        query.setParameter("accountId", accountId);
         query.setParameter("accountNumber", accountNumber);
-        query.setParameter("accountType", accountType);
-        List<Accounts> resultList = query.getResultList();
+        List<Statements> resultList = query.getResultList();
         return resultList;
     }
-
 }

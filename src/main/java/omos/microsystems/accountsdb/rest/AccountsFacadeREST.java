@@ -90,16 +90,16 @@ public class AccountsFacadeREST extends AbstractFacade<Accounts> {
     }
     
     
-    @GET
-    @Path("search")
-    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-   public List<Accounts> findAccounts(@PathParam("id") int id, @PathParam("accountNumber") String accountNumber, @PathParam("accountType") String accountType) {
-        Query query = getEntityManager().createQuery("SELECT a FROM Accounts a WHERE a.id = :id OR a.accountNumber = :accountNumber OR a.accountType = :accountType");
-        query.setParameter("id", id);
-        query.setParameter("accountNumber", accountNumber);
-        query.setParameter("accountType", accountType);
-        List<Accounts> resultList = query.getResultList();
-        return resultList;
-    }
+//    @GET
+//    @Path("search")
+//    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+//   public List<Accounts> findAccounts(@PathParam("id") int id, @PathParam("accountNumber") String accountNumber, @PathParam("accountType") String accountType) {
+//        Query query = getEntityManager().createQuery("SELECT a FROM Accounts a WHERE a.id = :id OR a.accountNumber = :accountNumber OR a.accountType = :accountType");
+//        query.setParameter("id", id);
+//        query.setParameter("accountNumber", accountNumber);
+//        query.setParameter("accountType", accountType);
+//        List<Accounts> resultList = query.getResultList();
+//        return resultList;
+//    }
    
 }

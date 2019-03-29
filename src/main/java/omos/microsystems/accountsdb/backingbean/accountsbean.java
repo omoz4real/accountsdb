@@ -32,17 +32,18 @@ public class accountsbean implements Serializable {
 
     private Accounts account = new Accounts();
     private List<Accounts> accounts;
-    private List<Accounts> findCustomersByAccount ;
-    
+    private List<Accounts> findCustomersByAccount;
+
     private Statements statement = new Statements();
     private List<Statements> statements;
     private List<Statements> findStatementsByAccount;
- 
+
     int id;
+
     int accountId;
     String accountNumber;
     String accountType;
-    
+
     int statementId;
     double amount;
     Date datefield;
@@ -59,6 +60,7 @@ public class accountsbean implements Serializable {
     private StatementsFacade statementsfacade;
     @EJB
     private StatementsFacadeREST statementsfacaderest;
+
     /**
      * Creates a new instance of accountsbean
      */
@@ -69,7 +71,7 @@ public class accountsbean implements Serializable {
         account = accountsfacade.find(id);
         account = accountsfacaderest.find(id);
         account = new Accounts();
-        
+
         statements = statementsfacaderest.findAll();
         statements = statementsfacade.findAll();
         statement = statementsfacaderest.find(id);
@@ -148,8 +150,6 @@ public class accountsbean implements Serializable {
     public void setDatefield(Date datefield) {
         this.datefield = datefield;
     }
-    
-    
 
     public String showDetails(Accounts account) {
         this.account = account;
@@ -172,7 +172,6 @@ public class accountsbean implements Serializable {
 //    public void setStatements(List<Statements> statements) {
 //        this.statements = statements;
 //    }
-
 //    public StatementsFacade getStatementsfacade() {
 //        return statementsfacade;
 //    }
@@ -188,8 +187,6 @@ public class accountsbean implements Serializable {
 //    public void setStatementsfacaderest(StatementsFacadeREST statementsfacaderest) {
 //        this.statementsfacaderest = statementsfacaderest;
 //    }
-
-    
 //    public String getAccountName() {
 //        try {
 //            return em.createNamedQuery("Accounts.findById", Accounts.class).setParameter("id", accountId).getSingleResult().getAccountType();
@@ -197,7 +194,6 @@ public class accountsbean implements Serializable {
 //            return "";
 //        }
 //    }
-
 //    public List<Accounts> findAccounts() {
 ////        Query query = getEntityManager().createQuery("SELECT a FROM Accounts a WHERE e.courseDate BETWEEN :startDate AND :endDate order " + "by e.courseDate");
 //        Query query = em.createQuery("SELECT a FROM Accounts a WHERE a.id = :accountId AND a.accountNumber = :accountNumber AND a.accountType = :accountType");
@@ -207,7 +203,6 @@ public class accountsbean implements Serializable {
 //        List<Accounts> resultList = query.getResultList();
 //        return resultList;
 //    }
-
 //    public String getAllAcccounts() {
 //        try {
 //            List<Accounts> list = em.createNamedQuery("Accounts.findAll", Accounts.class)
@@ -227,43 +222,37 @@ public class accountsbean implements Serializable {
 //            return "none";
 //        }
 //    }
-
-    public List<Accounts> findCustomers() {
-        List<Accounts> cust = null;
-        try {
-            cust = accountsfacade.findAccounts(accountId, accountNumber, accountType);
-            System.out.println("This are the details" + cust.get(0));
-        } catch (ArrayIndexOutOfBoundsException exception) {
-            System.out.println("This is the Exception" + exception + " " + 3);
-        }
-        return cust;
-
-    }
-
-    public List<Accounts> getFindCustomersByAccount() {
-        findCustomersByAccount = accountsfacade.findAccounts(accountId, accountNumber, accountType);
-        return findCustomersByAccount;
-    }
-
-    public void setFindCustomersByAccount(List<Accounts> findCustomersByAccount) {
-        this.findCustomersByAccount = findCustomersByAccount;
-    }
-
-    
+//    public List<Accounts> findCustomers() {
+//        List<Accounts> cust = null;
+//        try {
+//            cust = accountsfacade.findAccounts(accountId, accountNumber, accountType);
+//            System.out.println("This are the details" + cust.get(0));
+//        } catch (ArrayIndexOutOfBoundsException exception) {
+//            System.out.println("This is the Exception" + exception + " " + 3);
+//        }
+//        return cust;
+//
+//    }
     public List<Statements> findStatements() {
-        List<Statements> state = null;
+        List<Statements> stat = null;
         try {
-            state = statementsfacaderest.findStatements(3, amount, datefield);
-            
+            stat = statementsfacade.findStatements(statementId, amount, datefield, accountId, accountNumber);
+
         } catch (ArrayIndexOutOfBoundsException exception) {
             System.out.println("This is the Exception" + exception + " " + 3);
         }
-        return state;
-
+        return stat;
     }
-    
+
+//    public List<Accounts> getFindCustomersByAccount() {
+//        findCustomersByAccount = accountsfacade.findAccounts(accountId, accountNumber, accountType);
+//        return findCustomersByAccount;
+//    }
+//    public void setFindCustomersByAccount(List<Accounts> findCustomersByAccount) {
+//        this.findCustomersByAccount = findCustomersByAccount;
+//    }
     public List<Statements> getFindStatementsByAccount() {
-        findStatementsByAccount = statementsfacaderest.findStatements(1, amount, datefield);
+        findStatementsByAccount = statementsfacade.findStatements(statementId, amount, datefield, accountId, accountNumber);
         return findStatementsByAccount;
     }
 
@@ -271,5 +260,5 @@ public class accountsbean implements Serializable {
         this.findStatementsByAccount = findStatementsByAccount;
     }
 
-    
+
 }

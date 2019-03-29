@@ -4,8 +4,7 @@
         <jta-data-source>java:app/jdbc/accountsdb</jta-data-source>
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
         <properties>
-            <property name="eclipselink.logging.exceptions" value="false"/>
-            <property name="eclipselink.logging.level" value="FINE"/>
+
         </properties>
     </persistence-unit>
 </persistence>

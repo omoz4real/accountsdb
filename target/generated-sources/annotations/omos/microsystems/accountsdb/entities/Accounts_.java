@@ -6,7 +6,7 @@ import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 import omos.microsystems.accountsdb.entities.Statements;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2019-03-28T13:24:42")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2019-03-29T09:55:33")
 @StaticMetamodel(Accounts.class)
 public class Accounts_ { 
 
