@@ -8,16 +8,16 @@
     </h:head>
     <h:body>
         <h:form id="form1">
-<h:commandLink style="margin-right: 20px" value="Log Out" action="#{accountsbean.logout}" immediate="true"></h:commandLink>
-<h:outputText style="margin-right: 20px" value="#{accountsbean.name}" /></li>
+            <h:commandLink style="margin-right: 20px" value="Log Out" action="#{accountsbean.logout}" immediate="true"></h:commandLink>
+            <h:outputText style="margin-right: 20px" value="#{accountsbean.name}" />
             <p:dataTable value="#{accountsbean.statements}" var="account">
-                
+
                 <p:column  headerText="Account Id"> 
                     <h:commandLink action="#{accountsbean.showDetails(account)}"
                                    value="#{account.accountId.id}"/>
-                    
+
                 </p:column>
-                
+
                 <p:column headerText="Statement ID">
                     <h:commandLink action="#{accountsbean.showDetails(account)}"
                                    value="#{account.id}"/>
@@ -40,7 +40,7 @@
                     <h:outputText value="#{account.datefield} "/>
                 </p:column>
 
-                
+
 
 
             </p:dataTable>

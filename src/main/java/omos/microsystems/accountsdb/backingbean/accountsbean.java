@@ -281,7 +281,7 @@ public class accountsbean implements Serializable {
             String dateInString2 = "2019-03-03";
             Date firstdate = sdf.parse(dateInString);
             Date seconddate = sdf.parse(dateInString2);
-            stat = statementsfacaderest.findStatementsByDate(firstdate, seconddate);
+            stat = statementsfacaderest.findStatementsByDate(new Date("2019/01/01"), new Date("2019/05/03"));
 
         } catch (ArrayIndexOutOfBoundsException exception) {
             System.out.println("This is the Exception" + exception);
