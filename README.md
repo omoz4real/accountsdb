@@ -12,7 +12,7 @@ The SQL code to create the database and insert some values are given below
 CREATE TABLE accountsdb.ACCOUNTS (
 id INT NOT NULL AUTO_INCREMENT, 
 account_number VARCHAR(255), 
-account_type CHAR(255), 
+account_type ENUM('Savings', 'Fixed Deposit', 'Current'), 
 PRIMARY KEY (id));
 
 CREATE TABLE accountsdb.STATEMENTS (
