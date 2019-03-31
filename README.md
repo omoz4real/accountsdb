@@ -3,6 +3,7 @@ AccountsDB Project
 The Database should be running before deploying the application. The database name and URL is
 
 database name = accountsdb
+
 database URL = jdbc:mysql://localhost:3306/accountsdb?autoReconnect=true&amp;useSSL=false"
 
 Create the database 
