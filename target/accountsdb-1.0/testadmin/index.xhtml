@@ -8,7 +8,8 @@
     </h:head>
     <h:body>
         <h:form id="form1">
-
+<li><h:commandLink  value="Log Out" action="#{accountsbean.logout}" immediate="true"></h:commandLink></li>
+<li><h:outputText value="#{accountsbean.name}" /></li>
             <p:dataTable value="#{accountsbean.statements}" var="account">
                 
                 <p:column  headerText="Account Id"> 

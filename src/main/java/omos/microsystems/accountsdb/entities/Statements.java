@@ -6,6 +6,7 @@
 package omos.microsystems.accountsdb.entities;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -79,6 +80,7 @@ public class Statements implements Serializable {
     }
 
     public Date getDatefield() {
+        //SimpleDateFormat b = new SimpleDateFormat("MM-dd-yyyy");
         return datefield;
     }
 
@@ -86,6 +88,11 @@ public class Statements implements Serializable {
         this.datefield = datefield;
     }
 
+    public String getFormattedDate() {
+        SimpleDateFormat b = new SimpleDateFormat("yyyy-MM-dd");
+        return b.format(datefield);
+    }
+    
     public double getAmount() {
         return amount;
     }

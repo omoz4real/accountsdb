@@ -5,12 +5,17 @@
  */
 package omos.microsystems.accountsdb.rest;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import javax.annotation.security.DeclareRoles;
+import javax.annotation.security.RolesAllowed;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TemporalType;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -27,6 +32,7 @@ import omos.microsystems.accountsdb.entities.Statements;
  * @author omozegieaziegbe
  */
 @Stateless
+@DeclareRoles({"AdminRole", "UserRole"})
 @Path("statements")
 public class StatementsFacadeREST extends AbstractFacade<Statements> {
 
@@ -89,16 +95,29 @@ public class StatementsFacadeREST extends AbstractFacade<Statements> {
     protected EntityManager getEntityManager() {
         return em;
     }
-    
-    public List<Statements> findStatements(int id, double amount, Date datefield, int accountId, String accountNumber) {
-        Query query = getEntityManager().createQuery("SELECT s FROM Statements s WHERE s.id = :id OR s.datefield = :datefield OR s.amount = :amount OR s.accountId.id = :accountId OR s.accountId.accountNumber = :accountNumber");
+
+    @RolesAllowed({"AdminRole"})
+    public List<Statements> findStatements(int id, double startamount, double endamount, Date datefield, int accountId, String accountNumber, Date startdate, Date enddate) {
+        Query query = getEntityManager().createQuery("SELECT s FROM Statements s WHERE s.id = :id OR s.datefield = :datefield OR s.amount BETWEEN :startamount AND :endamount OR s.datefield BETWEEN :startdate AND :enddate OR s.accountId.id = :accountId OR s.accountId.accountNumber = :accountNumber");
         query.setParameter("id", id);
         query.setParameter("datefield", datefield);
-        query.setParameter("amount", amount);
+        query.setParameter("startamount", startamount);
+        query.setParameter("endamount", endamount);
         query.setParameter("accountId", accountId);
         query.setParameter("accountNumber", accountNumber);
+        query.setParameter("startdate", startdate, TemporalType.DATE);
+        query.setParameter("enddate", enddate, TemporalType.DATE);
         List<Statements> resultList = query.getResultList();
         return resultList;
     }
     
+    public List<Statements> findStatementsByDate(Date firstdate, Date lastdate) throws ParseException {
+        Query query = getEntityManager().createQuery("SELECT s FROM Statements s WHERE s.datefield BETWEEN :firstdate AND :lastdate ");
+        query.setParameter("firstdate", firstdate, TemporalType.DATE);
+        query.setParameter("lastdate", lastdate, TemporalType.DATE);
+        List<Statements> stateList = query.getResultList();
+        return stateList;
+    }
+
+
 }

@@ -4,10 +4,13 @@
   <security-role-mapping>
     <role-name>AdminRole</role-name>
     <principal-name>testadmin</principal-name>
+     <group-name>bank_users</group-name>
   </security-role-mapping>
   <security-role-mapping>
     <role-name>UserRole</role-name>
     <principal-name>testUser</principal-name>
+    <group-name>test_users</group-name>
+    <group-name>bank_users</group-name>
   </security-role-mapping>
   <class-loader delegate="true"/>
   <jsp-config>

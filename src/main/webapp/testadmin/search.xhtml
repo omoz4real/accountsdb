@@ -11,6 +11,11 @@
         </h:head>
         <h:body>
             <h:form id="form">
+<!--                <p:messages/>-->
+                <h:outputText value="Welcome #{accountsbean.name}" style="margin-right: 20px"/>
+                <h:commandLink style="margin-right: 20px" value="Log Out" action="#{accountsbean.logout}" immediate="true"></h:commandLink>
+                <h:commandLink  action="index.xhtml?faces-redirect=true" immediate="true" value="View All Accounts"/>
+                <br/><br/><br/>
                 <h:panelGrid columns="2">
 
                     <h:outputLabel for="accountId" value="Account Id:" />
@@ -52,7 +57,7 @@
                     </p:column>
 
                     <p:column headerText="Date">
-                        <h:outputText value="#{account.datefield} " />
+                        <h:outputText value="#{account.formattedDate} " />
                     </p:column>
 
                     <p:column headerText="Account Type">

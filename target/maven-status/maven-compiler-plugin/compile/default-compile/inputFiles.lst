@@ -1,9 +1,6 @@
-/Users/omozegieaziegbe/NetBeansProjects/accountsdb/src/main/java/omos/microsystems/accountsdb/session/StatementsFacade.java
-/Users/omozegieaziegbe/NetBeansProjects/accountsdb/src/main/java/omos/microsystems/accountsdb/session/AccountsFacade.java
 /Users/omozegieaziegbe/NetBeansProjects/accountsdb/src/main/java/omos/microsystems/accountsdb/rest/ApplicationConfig.java
 /Users/omozegieaziegbe/NetBeansProjects/accountsdb/src/main/java/omos/microsystems/accountsdb/entities/Statements.java
 /Users/omozegieaziegbe/NetBeansProjects/accountsdb/src/main/java/omos/microsystems/accountsdb/rest/AccountsFacadeREST.java
-/Users/omozegieaziegbe/NetBeansProjects/accountsdb/src/main/java/omos/microsystems/accountsdb/session/AbstractFacade.java
 /Users/omozegieaziegbe/NetBeansProjects/accountsdb/src/main/java/omos/microsystems/accountsdb/rest/StatementsFacadeREST.java
 /Users/omozegieaziegbe/NetBeansProjects/accountsdb/src/main/java/omos/microsystems/accountsdb/entities/Accounts.java
 /Users/omozegieaziegbe/NetBeansProjects/accountsdb/src/main/java/omos/microsystems/accountsdb/backingbean/accountsbean.java

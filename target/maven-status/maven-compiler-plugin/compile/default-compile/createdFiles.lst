@@ -1,12 +1,9 @@
+omos/microsystems/accountsdb/rest/AccountsFacadeREST.class
 omos/microsystems/accountsdb/backingbean/accountsbean.class
+omos/microsystems/accountsdb/rest/StatementsFacadeREST.class
 omos/microsystems/accountsdb/rest/AbstractFacade.class
 omos/microsystems/accountsdb/entities/Accounts.class
 omos/microsystems/accountsdb/entities/Statements_.class
-omos/microsystems/accountsdb/session/StatementsFacade.class
-omos/microsystems/accountsdb/session/AbstractFacade.class
-omos/microsystems/accountsdb/rest/AccountsFacadeREST.class
-omos/microsystems/accountsdb/rest/StatementsFacadeREST.class
 omos/microsystems/accountsdb/rest/ApplicationConfig.class
 omos/microsystems/accountsdb/entities/Accounts_.class
-omos/microsystems/accountsdb/session/AccountsFacade.class
 omos/microsystems/accountsdb/entities/Statements.class

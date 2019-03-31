@@ -7,6 +7,9 @@
     </h:head>
     <h:body>
         <h:form>
+            <h:commandLink style="margin-right: 20px" value="Log Out" action="#{accountsbean.logout}" immediate="true"></h:commandLink>
+            <h:outputText style="margin-right: 20px" value="#{accountsbean.name}" />
+            <h:commandLink style="margin-right: 20px" action="index.xhtml?faces-redirect=true" immediate="true" value="View All Accounts"/>
             <h:panelGrid columns="2">
         <h:outputLabel value="Amount" class="label"/>
         <h:inputText value="#{accountsbean.statement.amount}"/>

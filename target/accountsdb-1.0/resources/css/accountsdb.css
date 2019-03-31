@@ -1,0 +1,114 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 13-Nov-2018, 9:00:19 PM
+    Author     : omozegieaziegbe
+
+*/
+/* reset browser styles */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1.2;
+}
+ol { 
+	padding-left: 1.4em;
+	list-style: decimal;
+}
+ul {
+	padding-left: 1.4em;
+	list-style: square;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+} 
+/* end reset browser styles */
+
+.clear:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+
+.clear {
+	zoom: 1;	
+}
+
+body {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;	
+}
+
+.pageWrapper{
+         background: #f7f7f2;
+}
+
+.columnWrapper {
+	float: left;
+	width: 70%;	
+}
+
+.loginbutton{
+     width: 100px;
+     padding: 15px 15px;
+     font-size: 1em;
+  font-family:Tahoma, Geneva, sans-serif;
+  background-color: #B2F511;
+  color: #ffffff;  
+  -webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+	transition: all 0.3s;
+        cursor: pointer;
+        margin-left: 120px;
+}
+.loginbutton:hover{
+   background-color: #B2F511;
+}
+
+
+
+.subform1 {
+  font-size: 1em;
+  font-family:Tahoma, Geneva, sans-serif;
+  margin-top: 50px;
+}
+.subform1 .label {
+  display: inline-block;
+  width: 120px;
+  vertical-align: top;
+  text-align: right;
+  font-weight: bold;
+}
+.subform1 input[type="text"], .subform1 input[type="password"] {
+	font-size: 1em;
+	border-radius: 5px;
+	border:  dimgrey 1px solid;
+	width: 450px;
+	padding: 10px;	
+}
+.subform1 input[type="text"]:focus, .subform1 input[type="password"] {
+  color: black;
+}
+.loginform{
+    max-width: 800px;
+    margin: 80px auto;
+    background: #ffffff;
+    padding: 50px 50px;
+/*   margin-top: 50px;*/
+}
+
