@@ -1,7 +1,11 @@
 AccountsDB Project
 
-To access the restful service endpoint, visit localhost:8080/accountsdb/webresources/statements after successfully deploying the application
+The Database should be running before deploying the application. The database name and URL is
 
+database name = accountsdb
+database URL = jdbc:mysql://localhost:3306/accountsdb?autoReconnect=true&amp;useSSL=false"
+
+Create the database 
 The SQL code to create the database and insert some values are given below
 
 CREATE TABLE accountsdb.ACCOUNTS (
@@ -25,3 +29,7 @@ INSERT INTO accountsdb.ACCOUNTS (account_number, account_type) VALUES ('76861332
 INSERT INTO accountsdb.STATEMENTS (id, account_id, datefield, amount) VALUES (1, 1, '2019-03-27', 600.0);
 INSERT INTO accountsdb.STATEMENTS (id, account_id, datefield, amount) VALUES (2, 2, '2019-03-27', 500.0);
 INSERT INTO accountsdb.STATEMENTS (id, account_id, datefield, amount) VALUES (3, 3, '2019-03-27', 700.0);
+
+
+To access the restful service endpoint, visit localhost:8080/accountsdb/webresources/statements after successfully deploying the application
+
